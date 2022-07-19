@@ -10,8 +10,46 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 0) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_19_180700) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "artists", force: :cascade do |t|
+    t.string "name"
+    t.text "bio"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "arts", force: :cascade do |t|
+    t.string "image_url"
+    t.text "description"
+    t.integer "price"
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_arts_on_artist_id"
+  end
+
+  create_table "buyers", force: :cascade do |t|
+    t.string "name"
+    t.bigint "artist_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_buyers_on_artist_id"
+  end
+
+  create_table "purchases", force: :cascade do |t|
+    t.bigint "buyer_id", null: false
+    t.bigint "art_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["art_id"], name: "index_purchases_on_art_id"
+    t.index ["buyer_id"], name: "index_purchases_on_buyer_id"
+  end
+
+  add_foreign_key "arts", "artists"
+  add_foreign_key "buyers", "artists"
+  add_foreign_key "purchases", "arts"
+  add_foreign_key "purchases", "buyers"
 end
