@@ -1,2 +1,8 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<h1>Welcome to Create</h1>
+<h3>Reward for your creativity and passion</h3>
+
+<div class="container gallery">
+  <% @arts.each do |art| %>
+    <%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img" %>
+  <% end %>
+</div>
