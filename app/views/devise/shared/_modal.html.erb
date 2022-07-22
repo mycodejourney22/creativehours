@@ -1,0 +1,26 @@
+
+<%= link_to "Submit your work", "#", class: "btn btn-ghost modal-button", :'data-bs-toggle' => 'modal', :'data-bs-target' => "#staticBackdrop"  %>
+
+<!-- Modal -->
+<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content mx-auto">
+      <div class="modal-header">
+        <h5 class="modal-title" id="staticBackdropLabel">Add a new project</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <%= simple_form_for([@artist, @art]) do |f| %>
+          <%= f.input :image_url %>
+          <%= f.input :description %>
+          <%= f.input :price %>
+          <%= f.submit %>
+        <% end %>
+      </div>
+      <%# <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Understood</button>
+      </div> %>
+    </div>
+  </div>
+</div>

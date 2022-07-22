@@ -1,7 +1,8 @@
+<%= render "devise/shared/navbar", artist: current_artist %>
 <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1574577457890-57d56460e04c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80);">
   <div class="container text-center">
-    <h1>Le Wagon brings <strong>tech skills</strong> to <strong>creative people</strong>!</h1>
-    <p>Change your life and learn to code at one of our campuses around the world.</p>
+    <h1>Creat is<strong> home</strong> for  <strong>thousands of creative people and there work</strong>!</h1>
+    <p>Find and connect with good creatives for your next projects.</p>
   </div>
   <%= form_tag root_path, method: :get, class: "d-flex w-50 mx-auto" do %>
     <%= text_field_tag :query,
@@ -18,14 +19,18 @@
       <div class="header-item d-flex align-items-center justify-content-between">
         <div class= "d-flex" style="gap: 0.8rem">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
-          <div><p><%= art.artist.name %></p></div>
+          <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
         </div>
-        <div class= "d-flex" style="gap: 0.8rem">
-          <div><i class="fa-solid fa-heart"></i></div>
+        <div class= "header-icon d-flex" style="gap: 0.8rem">
+          <div><i class="fa-solid fa-heart"></i> 0</div>
           <div><i class="fa-solid fa-square-plus"></i></div>
         </div>
       </div>
-      <%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img" %>
+      <%# <%= link_to art_path(art) do  %>
+        <%# <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img"</div> %>
+      <%# <% end %>
+      <%= render "devise/shared/modal-home", art: art %>
     </div>
   <% end %>
 </div>
+<div id='art-content'></div>
