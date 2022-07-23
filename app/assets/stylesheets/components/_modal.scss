@@ -7,3 +7,46 @@
   max-width: 100%;
   margin: 1.75rem auto;
 }
+
+#modalcustome{
+  width: 1200px;
+  border-radius: 12px;
+}
+
+.modal-custome-body{
+  width: 800px;
+}
+
+.modal-title {
+  gap: 1rem;
+  align-items: center;
+
+  .avatar {
+    width: 40px;
+    height: max-content;
+  }
+
+  p {
+    margin-bottom: 0px;
+    font-size: smaller;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: smaller;
+    color: #35607A;
+  }
+}
+
+.purchase-field {
+  button {
+    background-color: #35607A;
+    border-color: #35607A;
+    color: white;
+    border-radius: 6px;
+  }
+
+  h5{
+    font-weight: bold;
+  }
+}

@@ -9,23 +9,30 @@
 <!-- Modal -->
 <div class="modal fade" id="myModal-<%= art.id %>" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <div class="modal-content mx-auto">
+    <div class="modal-content mx-auto" id="modalcustome">
       <div class="modal-header">
         <div class="modal-title d-flex" id="staticBackdropLabel">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
           <div>
             <p><%= art.artist.name %></p>
+            <a href="#">Available for hire</a>
           </div>
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-center">
-        <p><%= art.description %></p>
-        <div class="mx-auto text-center"><%= image_tag art.image_url, class: " image-show mx-auto" %></div>
+      <div class="modal-body d-flex text-center align-items-center ">
+        <div class="modal-custome-body">
+          <p><%= art.description.capitalize %></p>
+          <div class="mx-auto text-center"><%= image_tag art.image_url, class: " image-show mx-auto" %></div>
+        </div>
+        <div class="purchase-field">
+          <h5>PURCHASE A LICENSE</h5>
+           <p>£<%= art.price  %>.00 GBP </p>
+          <button type="button" class="btn btn-primary">ADD TO BASKET</button>
+        </div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Understood</button>
       </div>
     </div>
   </div>
