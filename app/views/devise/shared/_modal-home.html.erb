@@ -20,7 +20,7 @@
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body d-flex text-center align-items-center ">
+      <div class="modal-body text-center align-items-center mb-5">
         <div class="modal-custome-body">
           <p><%= art.description.capitalize %></p>
           <div class="mx-auto text-center"><%= image_tag art.image_url, class: " image-show mx-auto" %></div>
@@ -29,6 +29,26 @@
           <h5>PURCHASE A LICENSE</h5>
            <p>£<%= art.price  %>.00 GBP </p>
           <button type="button" class="btn btn-primary">ADD TO BASKET</button>
+        </div>
+      </div>
+      <div class="text-start modal-image-cards">
+        <h5>Discover Similar Artist</h5>
+        <div class="container gallery mt-4">
+          <% @art4.each do |art| %>
+            <div>
+              <div class="header-item d-flex align-items-center justify-content-between">
+                <div class= "d-flex" style="gap: 0.8rem">
+                  <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+                  <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
+                </div>
+                <div class= "header-icon d-flex" style="gap: 0.8rem">
+                  <div><i class="fa-solid fa-heart"></i> 0</div>
+                  <div><i class="fa-solid fa-square-plus"></i></div>
+                </div>
+              </div>
+              <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img" %></div>
+            </div>
+          <% end %>
         </div>
       </div>
       <div class="modal-footer">

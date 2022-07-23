@@ -14,7 +14,7 @@
 }
 
 .modal-custome-body{
-  width: 800px;
+  margin-bottom: 16px;
 }
 
 .modal-title {
@@ -48,5 +48,13 @@
 
   h5{
     font-weight: bold;
+  }
+}
+
+.modal-image-cards{
+  h5 {
+    padding-left: 12px;
+    font-weight: bold;
+    font-size: small;
   }
 }
