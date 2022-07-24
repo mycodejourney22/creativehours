@@ -13,10 +13,14 @@
     <%= submit_tag "Search", class: "btn btn-primary" %>
   <% end %>
 </div>
-<div class="container gallery mt-4">
+<div class="container gallery mt-5">
   <% @arts.each do |art| %>
     <div>
-      <div class="header-item d-flex align-items-center justify-content-between">
+      <%# <%= link_to art_path(art) do  %>
+        <%# <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img"</div> %>
+      <%# <% end %>
+      <%= render "devise/shared/modal-home", art: art %>
+      <div class="header-item d-flex align-items-center justify-content-between mt-1">
         <div class= "d-flex" style="gap: 0.8rem">
           <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
           <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
@@ -26,10 +30,6 @@
           <div><i class="fa-solid fa-square-plus"></i></div>
         </div>
       </div>
-      <%# <%= link_to art_path(art) do  %>
-        <%# <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img"</div> %>
-      <%# <% end %>
-      <%= render "devise/shared/modal-home", art: art %>
     </div>
   <% end %>
 </div>

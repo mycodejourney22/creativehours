@@ -10,7 +10,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <%= simple_form_for([@artist, @art]) do |f| %>
+        <%= simple_form_for([current_artist, @art]) do |f| %>
           <%= f.input :image_url %>
           <%= f.input :description %>
           <%= f.input :price %>
