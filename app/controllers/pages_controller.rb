@@ -6,7 +6,7 @@ class PagesController < ApplicationController
       @arts = Art.search_by_description_artist(params[:query])
     else
       @artists = Artist.all
-      @arts = Art.all
+      @arts = Art.first(16)
     end
   end
 

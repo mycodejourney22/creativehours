@@ -8,7 +8,7 @@ class ArtsController < ApplicationController
     @art = Art.new(strong_params)
     @art.artist = @artist
     if @art.save
-      redirect_to root_path
+      redirect_to artist_path(current_artist)
     else
       render :new, status: :unprocessable_entity
     end
@@ -17,6 +17,6 @@ class ArtsController < ApplicationController
   private
 
   def strong_params
-    params.require(:art).permit(:image_url, :description, :price)
+    params.require(:art).permit(:image_url, :description, :price, :photo)
   end
 end
