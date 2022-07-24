@@ -6,4 +6,5 @@ class Artist < ApplicationRecord
   has_many :buyers
   has_many :art
   validates :email, :uniqueness => {:allow_blank => true}
+  has_one_attached :photo
 end
