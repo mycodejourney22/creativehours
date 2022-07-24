@@ -3,4 +3,28 @@
   gap: 4rem;
   justify-content: center;
   margin-top: 32px;
+  width: 42rem;
+  h6 {
+    font-weight: bold;
+    margin-bottom: 0px;
+  }
+
+  a{
+    text-decoration: none;
+    font-size: small;
+  }
+  a i {
+    font-size: smaller;
+  }
+
+}
+
+.artist-show-header {
+  p {
+    background-color: #35607A;
+    padding: 4px 8px;
+    border-radius: 6px;
+    color: white;
+    cursor: pointer;
+  }
 }

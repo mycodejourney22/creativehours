@@ -22,7 +22,7 @@
       <%= render "devise/shared/modal-home", art: art %>
       <div class="header-item d-flex align-items-center justify-content-between mt-1">
         <div class= "d-flex" style="gap: 0.8rem">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
+          <%= cl_image_tag art.artist.photo.key, class: "avatar", alt: "avatar" , style: "height:1.3rem"%>
           <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
         </div>
         <div class= "header-icon d-flex" style="gap: 0.8rem">
