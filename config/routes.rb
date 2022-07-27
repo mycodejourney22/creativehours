@@ -10,5 +10,5 @@ Rails.application.routes.draw do
   resources :artists, only: ["show"] do
     resources :arts, only: ["new", "create"]
   end
-  resources :arts, only: ["show"]
+  resources :arts, only: ["show", "index"]
 end

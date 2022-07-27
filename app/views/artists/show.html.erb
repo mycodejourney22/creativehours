@@ -1,5 +1,6 @@
+<%= render "devise/shared/navbar", artist: current_artist %>
 <div class=" container">
-  <div class="head-content mx-auto">
+  <div class="head-content mx-auto mt-5">
     <% if @artist.photo.attached? %>
       <%= cl_image_tag @artist.photo.key, class: "avatar-large", alt: "avatar-large" %>
     <% else %>

@@ -3,6 +3,17 @@ class ArtsController < ApplicationController
     @art = Art.find(params[:id])
   end
 
+  def index
+    @arts = Art.all
+    @art4 = Art.all.sample(4)
+    if params[:query].present?
+      @arts = Art.search_by_description_artist(params[:query])
+    else
+      # @artists = Artist.all
+      @arts = Art.all
+    end
+  end
+
   def create
     @artist = Artist.find(current_artist.id)
     @art = Art.new(strong_params)
