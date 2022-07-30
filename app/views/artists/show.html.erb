@@ -1,4 +1,4 @@
-<%= render "devise/shared/navbar", artist: current_artist %>
+<%# <%= render "devise/shared/navbar", artist: current_artist %>
 <div class=" container">
   <div class="head-content mx-auto mt-5">
     <% if @artist.photo.attached? %>
@@ -18,7 +18,7 @@
       </div>
     </div>
   </div><hr>
-  <div class="gallery mt-5">
+  <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 mt-5">
     <% @artist.art.each do |art| %>
       <div>
         <%# <%= link_to art_path(art) do  %>
