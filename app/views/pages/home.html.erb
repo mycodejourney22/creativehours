@@ -1,27 +1,44 @@
 <%= render "devise/shared/navbar", artist: current_artist %>
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://images.unsplash.com/photo-1574577457890-57d56460e04c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80);">
-  <div class="container text-center">
-    <h1>Creat is<strong> home</strong> for  <strong>thousands of creative people and there work</strong>!</h1>
-    <p>Find and connect with good creatives for your next projects.</p>
+<div class="Banner">
+  <div class="Banner__heading">
+    <p class="Banner__heading-p text-center font-extralight">Sell your creativity in style on create</p>
   </div>
 </div>
-<div class="container gallery mt-5">
-  <% @arts.each do |art| %>
-    <div>
-      <%# <%= link_to art_path(art) do  %>
-        <%# <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img"</div> %>
-      <%# <% end %>
-      <%= render "devise/shared/modal-home", art: art %>
-      <div class="header-item d-flex align-items-center justify-content-between mt-1">
-        <div class= "d-flex" style="gap: 0.8rem">
-          <%= cl_image_tag art.artist.photo.key, class: "avatar", alt: "avatar" , style: "height:1.3rem"%>
-          <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
+
+<div class="container">
+  <div class="Style py-20">
+  <div class="Style__Row-heading mb-8 "><h4 class="font-bold">Find Arts</h4></div>
+    <%= form_tag arts_path, method: :get, class: "d-flex w-full mx-auto" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Find a creative"
+      %>
+      <%= submit_tag "Search", class: "PrimaryButton px-9 py-3.5 rounded inline-flex items-center justify-center w-max" %>
+    <% end %>
+  </div>
+
+  <div class="Style py-20">
+    <div class="Style__Row-heading mb-8"><h4 class="font-bold">Explore</h4></div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 ">
+      <% @arts.each do |art| %>
+        <div>
+          <%# <%= link_to art_path(art) do  %>
+            <%# <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img"</div> %>
+          <%# <% end %>
+          <%= render "devise/shared/modal-home", art: art %>
+          <div class="header-item d-flex align-items-center justify-content-between mt-1">
+            <div class= "d-flex" style="gap: 0.8rem">
+              <%= cl_image_tag art.artist.photo.key, class: "avatar", alt: "avatar" , style: "height:1.3rem"%>
+              <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
+            </div>
+            <div class= "header-icon d-flex" style="gap: 0.8rem">
+              <div><i class="fa-solid fa-heart"></i> 0</div>
+              <div><i class="fa-solid fa-square-plus"></i></div>
+            </div>
+          </div>
         </div>
-        <div class= "header-icon d-flex" style="gap: 0.8rem">
-          <div><i class="fa-solid fa-heart"></i> 0</div>
-          <div><i class="fa-solid fa-square-plus"></i></div>
-        </div>
-      </div>
+      <% end %>
     </div>
-  <% end %>
+  </div>
 </div>

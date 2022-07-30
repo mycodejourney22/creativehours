@@ -242,6 +242,8 @@ GEM
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     strscan (3.0.3)
+    tailwindcss-rails (2.0.10-x86_64-linux)
+      railties (>= 6.0.0)
     thor (1.2.1)
     tilt (2.0.10)
     timeout (0.3.0)
@@ -296,6 +298,7 @@ DEPENDENCIES
   simple_form!
   sprockets-rails
   stimulus-rails
+  tailwindcss-rails (~> 2.0)
   turbo-rails
   tzinfo-data
   web-console
