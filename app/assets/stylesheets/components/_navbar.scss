@@ -1,29 +1,38 @@
-// .navbar-lewagon {
-//   justify-content: space-between;
-//   background: white;
-// }
-
-// .navbar-lewagon .navbar-collapse {
-//   flex-grow: 0;
-// }
-
-// .navbar-lewagon .navbar-brand img {
-//   width: 40px;
-// }
-
-
-.Navigation__inner{
-  min-height: 86px;
+.navbar-lewagon {
+  justify-content: space-between;
+  background: #F4F4F4;
+  margin-bottom: 60px;
 }
 
-.b-nav__nav-item--gradient:hover{
+.navbar-lewagon .navbar-collapse {
+  flex-grow: 0;
+}
+
+.navbar-lewagon .navbar-brand img {
+  width: 40px;
+}
+
+
+// .Navigation__inner{
+//   min-height: 86px;
+// }
+
+.Nav__link:hover{
   background-image: linear-gradient(70deg,#5C0F99,#3449B8 60%,#1799E1);
   background-size: 100%;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
-.b-nav__nav-item--gradient{
+.Nav__link{
   text-decoration: none;
   color: black;
+}
+
+.Nav__link-gradient{
+  text-decoration: none;
+  background-image: linear-gradient(70deg,#3449B8,#3449B8 60%,#3449B8);
+  background-size: 100%;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

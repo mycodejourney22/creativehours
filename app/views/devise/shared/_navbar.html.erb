@@ -1,29 +1,36 @@
-<nav class="Navigation px-20">
-    <div class="Navigation__inner flex">
-      <ul class="flex justify-between items-center font-semibold text-h4 flex-1">
-        <li class="">
-          <a href="" class="b-nav__nav-item p-2 b-nav__nav-item--gradient ">Sunglasses</a>
-        </li>
-        <li>
-          <a href="" class="b-nav__nav-item p-2 b-nav__nav-item--gradient ">Goggles</a>
-        </li>
-        <li>
-          <a href="" class="b-nav__nav-item p-2 b-nav__nav-item--gradient ">Collaborations</a>
-        </li>
-        <li>
-          <a href="" class="b-nav__nav-item p-2 b-nav__nav-item--gradient">Sports</a>
-        </li>
-        <li>
-          <a href="" class="b-nav__nav-item p-2 b-nav__nav-item--gradient">Mission</a>
-        </li>
-        <li>
-          <a href="" class="b-nav__nav-item p-2  b-nav__nav-item--gradient">Explore</a>
-        </li>
-        <li>
-          <div class="w-max">
-            <span class="b-nav__nav-item p-2  b-nav__nav-item--gradient b-nav__item--cart"><i class="fa-solid fa-basket-shopping"></i><span class="b-nav__item--cart-child">0</span></span>
-          </div>
-        </li>
+<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
+  <div class="container-fluid">
+    <%= link_to "#", class: "navbar-brand" do %>
+      <h6 class="text-sm font-semibold">CreateLogo</h6>
+    <% end %>
+
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto">
+        <% if artist_signed_in? %>
+          <li class="nav-item active">
+            <%= render "devise/shared/modal" %>
+          </li>
+          <li class="nav-item dropdown">
+            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+              <%= link_to "Action", "#", class: "dropdown-item" %>
+              <%= link_to "My Profile", artist_path(current_artist), class: "dropdown-item" %>
+              <%= link_to "Log out",  destroy_artist_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
+            </div>
+          </li>
+        <% else %>
+          <!--li class="nav-item"-->
+            <%= link_to "Login/Sign Up", new_artist_session_path, class: "nav-link" %>
+          <!--/li-->
+        <% end %>
       </ul>
     </div>
-  </nav>
+  </div>
+
+</div>
+<!-- Button trigger modal -->

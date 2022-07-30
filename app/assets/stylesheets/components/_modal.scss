@@ -1,7 +1,4 @@
-.modal-content {
-  border-radius: 12px;
-  width: 1000px;
-}
+
 
 .modal-dialog {
   max-width: 100%;
@@ -9,9 +6,9 @@
 }
 
 #modalcustome{
-  width: 1200px;
   border-radius: 12px;
 }
+
 
 .modal-custome-body{
   margin-bottom: 16px;
@@ -56,5 +53,26 @@
     padding-left: 12px;
     font-weight: bold;
     font-size: small;
+  }
+}
+
+@media (min-width: 640px) {
+  .Modal__responsive {
+    text-align: center;
+  }
+
+  .Modal__responsive img {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  #modalcustome{
+    width: 1200px;
+    border-radius: 12px;
+  }
+
+  .modal-content {
+    border-radius: 12px;
+    width: 1000px;
   }
 }

@@ -22,29 +22,31 @@
           <% end %>
           <div>
             <p><%= art.artist.name %></p>
-            <a href="#">Available for hire <i class="fa-solid fa-circle-check"></i></a>
+            <a href="#" class="Nav__link Nav__link-gradient font-medium">Available for hire <i class="fa-solid fa-circle-check"></i></a>
           </div>
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body text-center align-items-center mb-5">
-        <div class="modal-custome-body">
-          <p><%= art.description.capitalize %></p>
-          <% if art.photo.attached? %>
-            <div class="mx-auto text-center"><%= cl_image_tag art.photo.key, class: " image-show mx-auto" %></div>
-          <% else %>
-            <div class="mx-auto text-center"><%= image_tag art.image_url, class: " image-show mx-auto" %></div>
-          <% end %>
+     <div class="Modal__responsive">
+        <div class="modal-body text-center  align-items-center mb-5">
+          <div class="modal-custome-body">
+            <p><%= art.description.capitalize %></p>
+            <% if art.photo.attached? %>
+              <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " image-show " %></div>
+            <% else %>
+              <div class=" text-center"><%= image_tag art.image_url, class: " image-show " %></div>
+            <% end %>
+          </div>
+          <div class="purchase-field">
+            <h5>PURCHASE A LICENSE</h5>
+            <p>£<%= art.price  %>.00 GBP </p>
+            <button type="button" class="PrimaryButton px-9 py-3.5 rounded-lg inline-flex items-center justify-center w-max">ADD TO BASKET</button>
+          </div>
         </div>
-        <div class="purchase-field">
-          <h5>PURCHASE A LICENSE</h5>
-           <p>£<%= art.price  %>.00 GBP </p>
-          <button type="button" class="btn btn-primary">ADD TO BASKET</button>
-        </div>
-      </div>
+     </div>
       <div class="text-start modal-image-cards">
         <h5>Discover Similar Artist</h5>
-        <div class="container gallery mt-4">
+        <div class="container grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 mt-4">
           <% @art4.each do |art| %>
             <div>
               <div class="header-item d-flex align-items-center justify-content-between">
