@@ -25,6 +25,13 @@ class ArtsController < ApplicationController
     end
   end
 
+  def cart
+    id = params[:id].to_i
+    session[:cart] ||= []
+    session[:cart] << id
+    redirect_to root_path
+  end
+
   private
 
   def strong_params

@@ -28,19 +28,24 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
      <div class="Modal__responsive">
-        <div class="modal-body text-center  align-items-center mb-5">
-          <div class="modal-custome-body">
-            <p><%= art.description.capitalize %></p>
+        <div class="modal-body Style__ShowPage-flex text-center d-flex justify-around  mb-5">
+          <div class="modal-custome-body Style__ShowPage-heading">
             <% if art.photo.attached? %>
               <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " image-show " %></div>
             <% else %>
               <div class=" text-center"><%= image_tag art.image_url, class: " image-show " %></div>
             <% end %>
+            <p><%= art.description.capitalize %></p>
           </div>
-          <div class="purchase-field">
-            <h5>PURCHASE A LICENSE</h5>
-            <p>£<%= art.price  %>.00 GBP </p>
-            <button type="button" class="PrimaryButton px-9 py-3.5 rounded-lg inline-flex items-center justify-center w-max">ADD TO BASKET</button>
+          <div class=" card purchase-field text-start">
+            <div class="d-flex justify-between">
+              <h6 class="font-black">Purchase a license</h6>
+              <h6 class="font-black">£<%= art.price  %>GBP </h6>
+            </div>
+            <p class="opacity-70 text-sm">1 user</p>
+            <p class="opacity-70">Best offer on pricing</p>
+            <%= button_to "ADD TO BASKET", cart_art_path(art), class: "PrimaryButton w-100 py-2.5 rounded-lg inline-flex items-center justify-center w-max",  method: :post %>
+            <span class="text-xs pt-3 opacity-80"><p> Price is in British Pounds. Price excludes sales tax. </p></span>
           </div>
         </div>
      </div>

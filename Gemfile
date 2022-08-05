@@ -5,6 +5,12 @@ ruby "3.0.3"
 
 gem "devise"
 
+gem 'money-rails'
+
+gem 'stripe'
+
+gem 'stripe_event'
+
 gem "dotenv-rails", groups: [:development, :test]
 
 gem "cloudinary"

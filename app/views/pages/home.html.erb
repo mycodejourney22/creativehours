@@ -5,7 +5,7 @@
   </div>
 </div>
 
-<div class="container">
+<div class="container-fluid">
   <div class="Style py-20">
   <div class="Style__Row-heading mb-8 "><h4 class="font-bold">Find Arts</h4></div>
     <%= form_tag arts_path, method: :get, class: "d-flex w-full mx-auto" do %>
@@ -20,7 +20,7 @@
 
   <div class="Style py-20">
     <div class="Style__Row-heading mb-8"><h4 class="font-bold">Explore</h4></div>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 ">
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 ">
       <% @arts.each do |art| %>
         <div>
           <%# <%= link_to art_path(art) do  %>

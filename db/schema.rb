@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_24_024809) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_01_034146) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -60,10 +60,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_024809) do
   create_table "arts", force: :cascade do |t|
     t.string "image_url"
     t.text "description"
-    t.integer "price"
     t.bigint "artist_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "price_cents", default: 0, null: false
     t.index ["artist_id"], name: "index_arts_on_artist_id"
   end
 
@@ -73,6 +73,16 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_024809) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["artist_id"], name: "index_buyers_on_artist_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "state"
+    t.string "checkout_session_id"
+    t.bigint "artist_id", null: false
+    t.string "cart", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artist_id"], name: "index_orders_on_artist_id"
   end
 
   create_table "purchases", force: :cascade do |t|
@@ -88,6 +98,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_24_024809) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "arts", "artists"
   add_foreign_key "buyers", "artists"
+  add_foreign_key "orders", "artists"
   add_foreign_key "purchases", "arts"
   add_foreign_key "purchases", "buyers"
 end

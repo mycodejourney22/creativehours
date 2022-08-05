@@ -1,0 +1,18 @@
+<section class="container mt-5">
+  <div class="Style Style__cart">
+    <div class= "Style Style__cart Style__cart-heading  text-center">
+      <h2>My Shopping bag</h2>
+      <p><%= humanized_money_with_symbol @total %></p>
+      <% @arts.each do |art| %>
+        <p><%= art.description.capitalize %></p>
+        <% if art.photo.attached? %>
+          <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " image-show " %></div>
+        <% else %>
+          <div class=" text-center"><%= image_tag art.image_url, class: " image-show " %></div>
+        <% end %>
+        <p><%= art.price %></p>
+      <% end %>
+      <%= button_to "Continue to checkout",  orders_path, method: :post  %>
+    </div>
+  </div>
+</section>

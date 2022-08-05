@@ -3,6 +3,7 @@ class Art < ApplicationRecord
   has_many :purchase
   has_many :buyers, through: :purchase
   has_one_attached :photo
+  monetize :price_cents
   include PgSearch::Model
   pg_search_scope :search_by_description_artist,
     against: [ :description ],

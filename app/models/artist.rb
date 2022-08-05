@@ -5,6 +5,7 @@ class Artist < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :buyers
   has_many :art
+  has_many :orders
   validates :email, :uniqueness => {:allow_blank => true}
   has_one_attached :photo
 end
