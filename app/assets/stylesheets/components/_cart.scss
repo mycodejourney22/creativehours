@@ -1,17 +1,9 @@
 .cart_icon {
-  position: absolute;
   font-size: smaller;
-  top: 14px;
-  right: 123px;
+  position: relative;
+  right: 24px;
+  top: -12px;
+  height: fit-content;
   background-image: linear-gradient(70deg,#5C0F99,#3449B8 60%,#1799E1);
-
-}
-
-@media only screen and (max-width: 600px) {
-  .cart_icon {
-    position: absolute;
-    top: 14px;
-  right: 60px;
-  }
 
 }
