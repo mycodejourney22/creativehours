@@ -1,12 +1,14 @@
 <div class="container">
   <div class=" container Style__Row-heading my-8 "><h4 class="font-bold">Find Arts</h4></div>
-      <%= form_tag arts_path, method: :get, class: "container d-flex w-full mx-auto" do %>
+      <%= form_tag arts_path, method: :get, class: "d-flex w-8/12 mx-auto" do %>
         <%= text_field_tag :query,
           params[:query],
           class: "form-control",
           placeholder: "Search..."
         %>
-        <%= submit_tag "Search", class: "PrimaryButton px-9 py-3.5 rounded inline-flex items-center justify-center w-max" %>
+        <%= button_tag :submit, class: "Banner-heading-button"  do %>
+          <i class="fa-solid fa-magnifying-glass"></i>
+        <% end %>
       <% end %>
   </div>
   <div class="container text-center mt-3">

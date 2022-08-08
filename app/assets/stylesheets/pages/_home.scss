@@ -12,3 +12,13 @@
 .header-icon i {
   color: #9e9ea7;
 }
+
+.Style__grid .homepage-image{
+  transition: transform .2s;
+}
+
+.Style__grid .homepage-image:hover{
+  -ms-transform: scale(1.03); /* IE 9 */
+  -webkit-transform: scale(1.03); /* Safari 3-8 */
+  transform: scale(1.03);
+}

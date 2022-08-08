@@ -7,4 +7,5 @@ class ArtistsController < ApplicationController
   def mycart
     @arts = Art.find(session[:cart])
   end
+
 end
