@@ -1,23 +1,28 @@
 <%= render "devise/shared/navbar", artist: current_artist %>
 <div class="Banner">
-  <div class="Banner__heading">
+  <%# <div class="Banner__heading">
     <p class="Banner__heading-p text-center font-extralight">Sell your creativity in style on create</p>
+  </div> %>
+  <%= video_tag "banner.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
+  <div class="Banner-heading">
+    <div>
+      <h4 class="font-bold">Explore the best of Arts and Images</h4><br>
+      <h6> Thousands of creatives are selling and getting paid there worth</h6>
+    </div>
+    <%= form_tag arts_path, method: :get, class: "d-flex w-8/12 mx-auto" do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control",
+        placeholder: "Search..."
+      %>
+      <%= button_tag :submit, class: "Banner-heading-button"  do %>
+        <i class="fa-solid fa-magnifying-glass"></i>
+      <% end %>
+    <% end %>
   </div>
 </div>
 
 <div class="container-fluid">
-  <div class="Style py-20">
-  <div class="Style__Row-heading mb-8 "><h4 class="font-bold">Find Arts</h4></div>
-    <%= form_tag arts_path, method: :get, class: "d-flex w-full mx-auto" do %>
-      <%= text_field_tag :query,
-        params[:query],
-        class: "form-control",
-        placeholder: "Find a creative"
-      %>
-      <%= submit_tag "Search", class: "PrimaryButton px-9 py-3.5 rounded inline-flex items-center justify-center w-max" %>
-    <% end %>
-  </div>
-
   <div class="Style py-20">
     <div class="Style__Row-heading mb-8"><h4 class="font-bold">Explore</h4></div>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 ">

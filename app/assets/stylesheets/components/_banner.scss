@@ -5,3 +5,35 @@
   padding: 13px 40px;
   color: white;
 }
+
+.Banner{
+  margin-top: 96px;
+  margin-bottom: 280px;
+}
+
+.home_video {
+  width: 100%;
+  height: 65vh;
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  object-fit: cover;
+  top: 0;
+  z-index: -2;
+ }
+
+ .Banner-heading{
+  color: white;
+  text-align: center;
+  padding-top: 90px;
+ }
+
+ .Banner-heading-button{
+  position: relative;
+  right: 30px;
+  color: black;
+ }
+
+ .form-control {
+  border-radius: 18px;
+ }
