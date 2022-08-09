@@ -6,7 +6,7 @@
   <%= video_tag "banner.mp4", autoplay: :autoplay, loop: :loop, muted: :muted, class: "home_video" %>
   <div class="Banner-heading">
     <div>
-      <h4 class="font-bold">Explore the best of Arts and Images</h4><br>
+      <h2 class="font-bold">Explore the best of Arts and Images</h2><br>
       <h6> Thousands of creatives are selling and getting paid there worth</h6>
     </div>
     <%= form_tag arts_path, method: :get, class: "d-flex w-8/12 mx-auto" do %>
@@ -27,7 +27,7 @@
     <div class="Style__Row-heading mb-8"><h4 class="font-bold">Explore</h4></div>
     <div class="grid Style__grid  grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4 ">
       <% @arts.each do |art| %>
-        <div>
+        <div class= "Style__grid--card">
           <%# <%= link_to art_path(art) do  %>
             <%# <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img"</div> %>
           <%# <% end %>

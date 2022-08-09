@@ -21,5 +21,19 @@
   -ms-transform: scale(1.03); /* IE 9 */
   -webkit-transform: scale(1.03); /* Safari 3-8 */
   transform: scale(1.03);
-  opacity: 0.8;
+}
+
+@media only screen and (max-width: 600px) {
+  .Style {
+    padding-top: 0px;
+  }
+
+  .container-fluid{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
+  .Banner{
+    margin-bottom: 245px;
+  }
 }
