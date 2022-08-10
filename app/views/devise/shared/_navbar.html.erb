@@ -1,5 +1,5 @@
 <div data-controller="navbar">
-<nav class="Navigation bg-white px-3 py-2">
+<nav class="Navigation bg-white px-3 py-2 fixed-top">
   <div class="Navigation__inner Navigation__inner-displayfirst sm:flex justify-between items-center">
     <div class="Navigation__inner Navigation__inner-displaysecond flex justify-between items-center sm:block">
       <h5 class="Navigation__inner Navigation__inner-logo font-semibold">Createlogo</h5>
@@ -13,7 +13,8 @@
           <a class="no-underline text-black font-semibold Navigation__inner-link" href="#">Hire a Creative</a>
         </li>
         <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
-          <a class="no-underline text-black font-semibold Navigation__inner-link" href="#">Submit your work</a>
+          <%# <a class="no-underline text-black font-semibold Navigation__inner-link" href="#">Submit your work</a> %>
+          <%= button_to "Submit your work", destroy_artist_session_path, class: "PrimaryButton w-100 py-2.5 px-2 rounded-lg inline-flex items-center justify-center w-max",  method: :post %>
         </li>
         <% if !current_artist %>
           <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
