@@ -1,36 +1,28 @@
-<div class="navbar navbar-expand-sm navbar-light navbar-lewagon fixed-top">
-  <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
-      <h6 class="text-sm font-semibold">CreateLogo</h6>
-    <% end %>
-
-
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto">
-        <% if artist_signed_in? %>
-          <li class="nav-item active">
-            <%= render "devise/shared/modal" %>
-          </li>
-          <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
-            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Action", "#", class: "dropdown-item" %>
-              <%= link_to "My Profile", artist_path(current_artist), class: "dropdown-item" %>
-              <%= link_to "Log out",  destroy_artist_session_path, class: "dropdown-item", data: {turbo_method: :delete} %>
-            </div>
-          </li>
-        <% else %>
-          <!--li class="nav-item"-->
-            <%= link_to "Login/Sign Up", new_artist_session_path, class: "nav-link" %>
-          <!--/li-->
-        <% end %>
+<div data-controller="navbar">
+<nav class="Navigation bg-white px-3 py-2">
+  <div class="Navigation__inner Navigation__inner-displayfirst sm:flex justify-between items-center">
+    <div class="Navigation__inner Navigation__inner-displaysecond flex justify-between items-center sm:block">
+      <h3 class="Navigation__inner Navigation__inner-logo">Createlogo</h3>
+      <div class="Navigation__inner Navigation__inner-menu sm:hidden" data-action="click->navbar#displayList">
+        <i class="fa-solid fa-bars cursor-pointer"></i>
+      </div>
+    </div>
+    <div>
+      <ul class="Navigation__inner Navigation__inner-items hidden pl-0 sm:block" data-navbar-target="listItem">
+        <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:inline-block ">
+          <a class="no-underline text-black font-semibold" href="#">Hire a Creative</a>
+        </li>
+        <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:inline-block sm:ml-5">
+          <a class="no-underline text-black font-semibold" href="#">Submit your work</a>
+        </li>
+        <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:inline-block sm:ml-5">
+          <a class="no-underline text-black font-semibold"  href="#">Login</a>
+        </li>
+        <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:inline-block sm:ml-5 no-underline">
+          <a class="no-underline text-black font-semibold" href="#">SignUp</a>
+        </li>
       </ul>
     </div>
   </div>
-
+</nav>
 </div>
-<!-- Button trigger modal -->

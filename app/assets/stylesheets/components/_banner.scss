@@ -1,14 +1,11 @@
 
 
-.Banner__heading-p{
-  background-image: linear-gradient(70deg,#5C0F99,#3449B8 60%,#1799E1);
-  padding: 13px 40px;
-  color: white;
-}
 
 .Banner{
-  margin-top: 96px;
-  margin-bottom: 280px;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  position: relative;
+  height: 65vh;
 }
 
 .home_video {
@@ -19,7 +16,7 @@
   justify-content: center;
   object-fit: cover;
   top: 0;
-  z-index: -2;
+  z-index: -1;
  }
 
  .Banner-heading{
