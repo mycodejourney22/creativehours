@@ -1,8 +1,9 @@
-<%= link_to "Submit your work", "#", class: "btn btn-ghost modal-button", :'data-bs-toggle' => 'modal', :'data-bs-target' => "#staticBackdrop"  %>
+
+<%= link_to "Submit your work", "javascript:void(0)", class: "PrimaryButton w-100 py-2.5 px-2 rounded-lg inline-flex items-center justify-center w-max no-underline hover:text-white", :'data-bs-toggle' => 'modal', :'data-bs-target' => "#staticBackdrop" %>
 
 <!-- Modal -->
 
-<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+<div class="modal fade relative" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content mx-auto">
       <div class="modal-header">
@@ -12,7 +13,7 @@
       <div class="modal-body">
         <%= simple_form_for([current_artist, @art]) do |f| %>
           <%= f.input :description %>
-          <%= f.input :price %>
+          <%= f.input :price, :input_html => { :class => 'border-[#3449B8]'} %>
           <%= f.input :photo, as: :file %>
           <%= f.submit %>
         <% end %>

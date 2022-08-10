@@ -12,10 +12,11 @@
         <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block ">
           <a class="no-underline text-black font-semibold Navigation__inner-link" href="#">Hire a Creative</a>
         </li>
-        <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
-          <%# <a class="no-underline text-black font-semibold Navigation__inner-link" href="#">Submit your work</a> %>
-          <%= button_to "Submit your work", destroy_artist_session_path, class: "PrimaryButton w-100 py-2.5 px-2 rounded-lg inline-flex items-center justify-center w-max",  method: :post %>
-        </li>
+        <% if !current_artist %>
+          <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
+            <%= button_to "Submit your work", destroy_artist_session_path, class: "PrimaryButton w-100 py-2.5 px-2 rounded-lg inline-flex items-center justify-center w-max",  method: :post %>
+          </li>
+        <% end %>
         <% if !current_artist %>
           <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
             <%= link_to "Login", new_artist_session_path, class: "no-underline text-black font-semibold Navigation__inner-link" %>
@@ -38,6 +39,11 @@
                 <% end %>
               </div>
             <% end %>
+          </li>
+        <% end %>
+        <% if current_artist %>
+          <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5 no-underline">
+            <%= render "devise/shared/modal" %>
           </li>
         <% end %>
         <% if current_artist %>
