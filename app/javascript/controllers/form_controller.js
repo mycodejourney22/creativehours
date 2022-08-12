@@ -10,19 +10,19 @@ export default class extends Controller {
 
   checkInput(){
     if (this.customInputFieldTarget.value.length > 0){
-      this.customLabelInputTarget.classList.remove("d-none")
+      this.customLabelInputTarget.classList.remove("opacity-0")
     }
     else {
-      this.customLabelInputTarget.classList.add("d-none")
+      this.customLabelInputTarget.classList.add("opacity-0")
     }
   }
 
   checkPassword(){
     if (this.customPasswordFieldTarget.value.length > 0){
-      this.customLabelPasswordTarget.classList.remove("d-none")
+      this.customLabelPasswordTarget.classList.remove("opacity-0")
     }
     else {
-      this.customLabelPasswordTarget.classList.add("d-none")
+      this.customLabelPasswordTarget.classList.add("opacity-0")
     }
   }
 }
