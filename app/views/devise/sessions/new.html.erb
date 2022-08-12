@@ -21,15 +21,15 @@
                 required: false,
                 autofocus: true,
                 label: "Email address",
-                label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all', :"data-form-target" => "customLabelInput" },
+                label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all' },
                 placeholder: 'Email address',
-                input_html: { autocomplete: "email", class: "form-control-half-full form-control-style  w-full", :"data-action" => "keyup->form#checkInput", :"data-form-target" => "customInputField" } %>
+                input_html: { autocomplete: "email", class: "form-control-half-full form-control-style  w-full", :"data-action" => "keyup->form#inputCheck" } %>
     <%= f.input :password,
                 required: false,
                 label: "Password",
-                label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all', :"data-form-target" => "customLabelPassword" },
+                label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all'},
                 placeholder: 'Password',
-                input_html: { autocomplete: "current-password" , class: "form-control-half-full form-control-style w-full", :"data-action" => "keyup->form#checkPassword", :"data-form-target" => "customPasswordField" } %>
+                input_html: { autocomplete: "current-password" , class: "form-control-half-full form-control-style w-full" , :"data-action" => "keyup->form#inputCheck" } %>
     <%= f.input :remember_me, input_html: { class: "form-control-style"} , as: :boolean if devise_mapping.rememberable?%>
   </div>
 
