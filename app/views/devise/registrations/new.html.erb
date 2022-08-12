@@ -1,4 +1,4 @@
-<div class="container SignUp">
+<div class="container SignUp" data-controller="signupform">
   <div class="my-6">
     <h5 class="font-semibold italic line-through  decoration-[#3449B8]">CreatLogo</h5>
   </div>
@@ -14,25 +14,40 @@
       <%= f.input :name,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "name", class: "form-control-half-full form-control-style" }%>
+                  label: "Name",
+                  placeholder: "Name",
+                  label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all'},
+                  input_html: { autocomplete: "name", class: "form-control-half-full form-control-style", :"data-action" => "keyup->signupform#inputCheck"}%>
       <%= f.input :location,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "location" , class: "form-control-half-full form-control-style"}%>
+                  label: "Location",
+                  placeholder: "Location",
+                  label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all'},
+                  input_html: { autocomplete: "location" , class: "form-control-half-full form-control-style", :"data-action" => "keyup->signupform#inputCheck"}%>
       <%= f.input :photo,
                   input_html: {class: "form-control-half-full form-control-style"},
                   as: :file %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
-                  input_html: { autocomplete: "email", class: "form-control-half-full form-control-style" }%>
+                  label: "Email",
+                  placeholder: "Email",
+                  label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all' },
+                  input_html: { autocomplete: "email", class: "form-control-half-full form-control-style" , :"data-action" => "keyup->signupform#inputCheck" }%>
       <%= f.input :password,
                   required: true,
+                  label: "Password",
+                  placeholder: "Password",
+                  label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all' },
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" , class: "form-control-half-full form-control-style" } %>
+                  input_html: { autocomplete: "new-password" , class: "form-control-half-full form-control-style" , :"data-action" => "keyup->signupform#inputCheck" } %>
       <%= f.input :password_confirmation,
                   required: true,
-                  input_html: { autocomplete: "new-password" , class: "form-control-half-full form-control-style"} %>
+                  label: "Password",
+                  placeholder: "Password",
+                  label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all' },
+                  input_html: { autocomplete: "new-password" , class: "form-control-half-full form-control-style" , :"data-action" => "keyup->signupform#inputCheck"} %>
     </div>
 
     <div class="form-actions">

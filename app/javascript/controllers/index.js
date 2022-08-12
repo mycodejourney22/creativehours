@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import NavbarController from "./navbar_controller"
 application.register("navbar", NavbarController)
+
+import SignupformController from "./signupform_controller"
+application.register("signupform", SignupformController)
