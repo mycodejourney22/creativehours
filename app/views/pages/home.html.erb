@@ -11,7 +11,7 @@
     <%= form_tag arts_path, method: :get, class: "d-flex w-8/12 mx-auto relative" do %>
       <%= text_field_tag :query,
         params[:query],
-        class: "form-control",
+        class: "form-control form-control-full",
         placeholder: "Search..."
       %>
       <%= button_tag :submit, class: "Banner-heading-button"  do %>

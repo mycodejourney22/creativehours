@@ -4,6 +4,7 @@ class ArtsController < ApplicationController
   end
 
   def index
+    @art = Art.new
     @arts = Art.all
     @art4 = Art.all.sample(4)
     if params[:query].present?
@@ -21,7 +22,9 @@ class ArtsController < ApplicationController
     if @art.save
       redirect_to artist_path(current_artist)
     else
-      render :new, status: :unprocessable_entity
+      @arts = Art.first(16)
+      @art4 = Art.all.sample(4)
+      render "pages/home", status: :unprocessable_entity
     end
   end
 

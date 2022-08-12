@@ -1,4 +1,5 @@
 class PagesController < ApplicationController
+  skip_before_action :authenticate_artist!, only: :home
   def home
     @art = Art.new
     @art4 = Art.all.sample(4)

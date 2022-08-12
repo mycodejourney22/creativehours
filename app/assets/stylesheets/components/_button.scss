@@ -25,3 +25,12 @@
 .PrimaryButton:hover{
   background-image: linear-gradient(to right, #5C0F99, #5C0F99, #5C0F99, #5C0F99);
 }
+
+.deviseButton{
+  border-radius: 0.5rem;
+  padding: 0.75rem 0.75rem;
+}
+
+.deviseButton:hover{
+  color: white;
+}

@@ -14,7 +14,7 @@
         </li>
         <% if !current_artist %>
           <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
-            <%= button_to "Submit your work", destroy_artist_session_path, class: "PrimaryButton w-100 py-2.5 px-2 rounded-lg inline-flex items-center justify-center w-max",  method: :post %>
+            <%= link_to "Submit your work", new_artist_session_path, class: "PrimaryButton w-100 py-2.5 px-2 rounded-lg inline-flex items-center justify-center w-max no-underline hover:text-white" %>
           </li>
         <% end %>
         <% if !current_artist %>

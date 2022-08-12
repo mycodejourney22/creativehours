@@ -8,4 +8,7 @@ class Artist < ApplicationRecord
   has_many :orders
   validates :email, :uniqueness => {:allow_blank => true}
   has_one_attached :photo
+  validates :name, presence: true
+  validates :bio, presence: true
+  validates :location, presence: true
 end
