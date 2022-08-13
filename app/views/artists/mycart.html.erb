@@ -1,7 +1,13 @@
+
 <section class="container mt-5">
   <div class="Style Style__cart">
     <div class= "Style Style__cart Style__cart-heading  text-center">
       <h2>My Shopping bag</h2>
+      <div class="text-start">
+        <%= link_to  arts_path, class: "no-underline font-semibold text-[#3449B8] icon-animate" do %>
+          <i class="fa-solid fa-arrow-left-long" ></i>  continue shopping
+        <% end %>
+      </div>
       <div class= "sm:grid grid-cols-4 gap-2">
         <div class="col-span-3"><hr>
           <% @arts.each do |art| %>

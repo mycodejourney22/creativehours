@@ -1,10 +1,13 @@
 <%= render "devise/shared/navbar", artist: current_artist %>
+<div class="Banner__mini w-full h-10 mt-[7rem] flex justify-center items-center">
+  <h6 class="Banner__mini-heading text-white  text-center"><span class="mr-4">Inspire</span><span class="mr-4">Search</span><span class="mr-4">Design</span><span class="mr-4">Create</span></h6>
+</div>
 <div class="container">
-  <div class=" container Style__Row-heading my-8 "><h4 class="font-bold">Find Arts</h4></div>
-      <%= form_tag arts_path, method: :get, class: "d-flex w-8/12 mx-auto" do %>
+  <div class=" container Style__Row-heading mb-8 mt-12 "><h4 class="font-bold">Find Arts</h4></div>
+      <%= form_tag arts_path, method: :get, class: "d-flex w-full mx-auto" do %>
         <%= text_field_tag :query,
           params[:query],
-          class: "form-control",
+          class: "form-control form-control-full",
           placeholder: "Search..."
         %>
         <%= button_tag :submit, class: "Banner-heading-button"  do %>
@@ -13,9 +16,9 @@
       <% end %>
   </div>
   <div class="container text-center mt-3">
-    <h2 class="font-black"><%= params[:query].capitalize %></h2>
-    <h4 class="font-semibold">Browse <%= @arts.count %>+ <%= params[:query] %> design for inspiration</h4>
-    <span><p>Inspire Search Design Create</p></span>
+    <% if params[:query] %>
+      <h2 class="font-black"><%= params[:query].capitalize %></h2>
+    <% end %>
   </div>
 
   <div class="container  mt-5 grid grid-cols-1 sm:grid-cols-2 gap-5 md:grid-cols-3 lg:grid-cols-4">

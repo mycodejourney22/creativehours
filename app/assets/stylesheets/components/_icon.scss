@@ -1,0 +1,16 @@
+@keyframes mymove {
+  from {left: 0px;}
+  to {left: -10px;}
+}
+
+.icon-animate{
+  padding-left: 16px;
+}
+
+.icon-animate:hover{
+  i {
+    position: relative;
+    animation: mymove 1s ;
+    animation-timing-function: ease-in;
+  }
+}
