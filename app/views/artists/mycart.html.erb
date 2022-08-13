@@ -8,9 +8,9 @@
             <div class="flex items-center gap-4 mb-4">
               <div>
                 <% if art.photo.attached? %>
-                  <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " w-80 rounded-lg " %></div>
+                  <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " w-80 rounded-lg h-[15rem] object-cover " %></div>
                 <% else %>
-                  <div class=" text-center"><%= image_tag art.image_url, class: "w-80  rounded-lg " %></div>
+                  <div class=" text-center"><%= image_tag art.image_url, class: "w-80 h-[15rem]  rounded-lg object-cover " %></div>
                 <% end %>
               </div>
               <div class="flex flex-col">
@@ -21,7 +21,7 @@
             </div><hr>
           <% end %>
         </div>
-        <div class="bg-white h-max rounded-lg w-[24rem] text-start py-[34px] px-[32px] mx-auto shadow">
+        <div class="bg-white h-max rounded-lg w-[24rem] text-start py-[34px] px-[32px] mx-auto shadow sm:sticky top-2.5">
           <h6 class="font-black text-md">Order Information</h6><hr>
           <div class="flex justify-between">
             <p>Total items:</p>
