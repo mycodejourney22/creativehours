@@ -2,7 +2,7 @@
 <nav class="Navigation bg-white px-8 py-2 fixed-top">
   <div class="Navigation__inner Navigation__inner-displayfirst sm:flex justify-between items-center">
     <div class="Navigation__inner Navigation__inner-displaysecond flex justify-between items-center sm:block">
-      <h5 class="Navigation__inner Navigation__inner-logo font-semibold  italic line-through  decoration-[#3449B8]">Createlogo</h5>
+      <h5 class="Navigation__inner Navigation__inner-logo font-semibold  italic line-through  decoration-[#3449B8]"><%= link_to "Createlogo", root_path , class: "font-semibold  italic line-through  decoration-[#3449B8] text-black" %></h5>
       <div class="Navigation__inner Navigation__inner-menu sm:hidden" data-action="click->navbar#displayList">
         <i class="fa-solid fa-bars cursor-pointer"></i>
       </div>
@@ -14,7 +14,7 @@
         </li>
         <% if !current_artist %>
           <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
-            <%= link_to "Submit your work", new_artist_session_path, class: "PrimaryButton w-100 py-2.5 px-2 rounded-lg inline-flex items-center justify-center w-max no-underline hover:text-white" %>
+            <%= link_to "Submit your work", new_artist_session_path, class: "no-underline text-black font-semibold Navigation__inner-link" %>
           </li>
         <% end %>
         <% if !current_artist %>
@@ -50,7 +50,11 @@
           <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5 no-underline relative sm:top-[1.2rem]">
             <div class="Navigation__inner Navigation__inner-avatar p-0.5 rounded-full w-max">
               <a class="block bg-white p-0.5 rounded-full w-max" href="#">
-                <img class="h-8 w-8 rounded-full" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="avatar">
+                <% if current_artist.photo.attached? %>
+                  <%= cl_image_tag current_artist.photo.key, class: "h-8 w-8 rounded-full object-cover", alt: "avatar"%>
+                <% else %>
+                  <img class="h-8 w-8 rounded-full" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="avatar">
+                <% end %>
               </a>
             </div>
           </li>

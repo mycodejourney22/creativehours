@@ -24,21 +24,9 @@
               <% end %>
               <div>
                 <p><%= art.artist.name %></p>
-                <a href="#" class="Nav__link Nav__link-gradient font-medium">Available for hire <i class="fa-solid fa-circle-check"></i></a>
+                <a href="#" class=" decoration-2 underline-offset-8 text-black decoration-[#3449B8]/70  hover:decoration-[#3449B8]">Available for hire <i class="fa-solid fa-circle-check ml-1"></i></a>
               </div>
             </div>
-            <% if current_artist %>
-              <%= link_to mycart_artist_path(current_artist), class: "no-underline text-inherit" do %>
-                <div class="d-flex">
-                  <p class="border rounded-lg py-2.5 px-3"><i class="fa-solid fa-basket-shopping"></i></p>
-                  <% if session[:cart].nil? %>
-                    <h6 class="font-black py-1 px-1.5 rounded-full  text-white absolute cart_icon">0</h6>
-                  <% else %>
-                    <h6 class="font-black py-1 px-1.5 rounded-full  text-white absolute cart_icon"><%= session[:cart].count %></h6>
-                  <% end %>
-                </div>
-              <% end %>
-            <% end %>
           </div>
         </div>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>

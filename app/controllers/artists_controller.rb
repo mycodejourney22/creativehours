@@ -6,7 +6,7 @@ class ArtistsController < ApplicationController
   end
 
   def mycart
-    @arts = Art.find(session[:cart])
+    @art = Art.new
+    @arts = Art.find(session[:cart]) if session[:cart]
   end
-
 end

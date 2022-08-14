@@ -1,46 +1,53 @@
-
+<%= render "devise/shared/navbar", artist: current_artist %>
+<div class="Banner__mini w-full h-10 mt-[7rem] flex justify-center items-center">
+  <h6 class="Banner__mini-heading text-white  text-center">My Shopping Bag</h6>
+</div>
 <section class="container mt-5">
   <div class="Style Style__cart">
     <div class= "Style Style__cart Style__cart-heading  text-center">
-      <h2>My Shopping bag</h2>
-      <div class="text-start">
-        <%= link_to  arts_path, class: "no-underline font-semibold text-[#3449B8] icon-animate" do %>
-          <i class="fa-solid fa-arrow-left-long" ></i>  continue shopping
+      <%# <h2>My Shopping bag</h2> %>
+      <div class="text-start mt-12">
+        <%= link_to  arts_path, class: "font-bold  underline decoration-2 underline-offset-8 text-black decoration-[#3449B8]/70 hover:decoration-[#3449B8]" do %>
+          <i class="fa-solid fa-arrow-left-long mr-1" ></i>  Continue shopping
         <% end %>
       </div>
-      <div class= "sm:grid grid-cols-4 gap-2">
-        <div class="col-span-3"><hr>
-          <% @arts.each do |art| %>
-            <div class="flex items-center gap-4 mb-4">
-              <div>
-                <% if art.photo.attached? %>
-                  <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " w-80 rounded-lg h-[15rem] object-cover " %></div>
-                <% else %>
-                  <div class=" text-center"><%= image_tag art.image_url, class: "w-80 h-[15rem]  rounded-lg object-cover " %></div>
-                <% end %>
-              </div>
-              <div class="flex flex-col">
-                <p class="font-semibold text-start text-sm">Creator: <%= art.artist.name %></p>
-                <p class="text-start"><%= humanized_money_with_symbol art.price %></p>
-                <p class="text-sm text-start"><%= art.description.capitalize %></p>
-              </div>
-            </div><hr>
-          <% end %>
-        </div>
-        <div class="bg-white h-max rounded-lg w-[24rem] text-start py-[34px] px-[32px] mx-auto shadow sm:sticky top-2.5">
-          <h6 class="font-black text-md">Order Information</h6><hr>
-          <div class="flex justify-between">
-            <p>Total items:</p>
-            <p>3</p>
+      <% if @arts %>
+        <div class= "sm:grid grid-cols-4 gap-2">
+          <div class="col-span-3"><hr>
+            <% @arts.each do |art| %>
+              <div class="flex items-center gap-4 mb-4">
+                <div>
+                  <% if art.photo.attached? %>
+                    <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " w-80 rounded-lg h-[15rem] object-cover " %></div>
+                  <% else %>
+                    <div class=" text-center"><%= image_tag art.image_url, class: "w-80 h-[15rem]  rounded-lg object-cover " %></div>
+                  <% end %>
+                </div>
+                <div class="flex flex-col">
+                  <p class="font-semibold text-start text-sm">Creator: <%= art.artist.name %></p>
+                  <p class="text-start"><%= humanized_money_with_symbol art.price %></p>
+                  <p class="text-sm text-start"><%= art.description.capitalize %></p>
+                </div>
+              </div><hr>
+            <% end %>
           </div>
-          <div class="flex justify-between">
-            <p>Total price:</p>
-            <p>£0.00GBP</p>
+          <div class="bg-white h-max rounded-lg w-[24rem] text-start py-[34px] px-[32px] mx-auto shadow sm:sticky top-2.5">
+            <h6 class="font-black text-md">Order Information</h6><hr>
+            <div class="flex justify-between">
+              <p>Total items:</p>
+              <p>3</p>
+            </div>
+            <div class="flex justify-between">
+              <p>Total price:</p>
+              <p>£0.00GBP</p>
+            </div>
+            <%= button_to "Continue to checkout",  orders_path,class:"PrimaryButton w-100 py-2.5 rounded-lg inline-flex items-center justify-center w-max", method: :post  %>
+            <p class="text-xs pt-3 opacity-80">Price is in British Pounds. Price excludes sales tax.</p>
           </div>
-          <%= button_to "Continue to checkout",  orders_path,class:"PrimaryButton w-100 py-2.5 rounded-lg inline-flex items-center justify-center w-max", method: :post  %>
-          <p class="text-xs pt-3 opacity-80">Price is in British Pounds. Price excludes sales tax.</p>
         </div>
-      </div>
+      <% else %>
+        <h4>Shopping bag is currently empty!😢😢</h4>
+      <% end %>
     </div>
   </div>
 </section>

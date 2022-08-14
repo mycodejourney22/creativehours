@@ -1,20 +1,36 @@
-<h1>My shopping bag</h1>
+<%= render "devise/shared/navbar", artist: current_artist %>
+<div class="Banner__mini w-full h-10 mt-[7rem] flex justify-center items-center">
+  <h6 class="Banner__mini-heading text-white  text-center">Preview your order</h6>
+</div>
 <section class="container mt-5">
   <div class="Style Style__cart">
     <div class= "Style Style__cart Style__cart-heading  text-center">
-      <h2>My Shopping bag</h2>
-      <h1>Order #<%= @order.id %> <small><span class="badge badge-primary"><%= @order.state %></span></small></h1>
-      <p><%= humanized_money_with_symbol @total %></p>
-      <% @arts.each do |art| %>
-        <p><%= art.description.capitalize %></p>
-        <% if art.photo.attached? %>
-          <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " image-show " %></div>
-        <% else %>
-          <div class=" text-center"><%= image_tag art.image_url, class: " image-show " %></div>
+      <div class="flex justify-around">
+        <h6>Order #<%= @order.id %></h6>
+        <h6>Order Status (<%= @order.state %>)</h6>
+        <h6>Total Price <%= humanized_money_with_symbol @total %></h6>
+      </div><hr>
+      <div class="grid Style__grid  grid-cols-2  gap-3 md:grid-cols-3 lg:grid-cols-4">
+        <% @arts.each do |art| %>
+          <div class="Style__grid--card">
+            <% if art.photo.attached? %>
+              <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " homepage-image img-fluid gallery__img " %></div>
+            <% else %>
+              <div class=" text-center"><%= image_tag art.image_url, class: " homepage-image img-fluid gallery__img " %></div>
+            <% end %>
+            <div class="header-item d-flex align-items-center justify-content-between mt-1">
+              <div class= "d-flex" style="gap: 0.8rem">
+                <%= cl_image_tag art.artist.photo.key, class: "avatar", alt: "avatar" , style: "height:1.3rem"%>
+                <div><p><%= art.artist.name %></p></div>
+              </div>
+              <div class= "header-icon d-flex" style="gap: 0.8rem">
+                <div><p class="text-[#3449B8] font-bold">£<%= art.price  %></p></div>
+              </div>
+            </div>
+          </div>
         <% end %>
-        <p><%= art.price %></p>
-      <% end %>
-      <button id="pay" type="button" class="PrimaryButton px-9 py-3.5 rounded-lg inline-flex items-center justify-center w-max">Pay now</button>
+      </div><hr>
+      <button id="pay" type="button" class="PrimaryButton  py-[18px] px-[30px] rounded-lg inline-flex items-center justify-center w-max no-underline hover:text-white mt-7 font-semibold">PAY NOW</button>
       <script src="https://js.stripe.com/v3/"></script>
       <script>
         const paymentButton = document.getElementById('pay');
