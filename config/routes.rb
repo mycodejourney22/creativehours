@@ -26,6 +26,9 @@ Rails.application.routes.draw do
     member  do
       post :cart
     end
+    member do
+      post 'toggle_favorite', to: "arts#toggle_favorite"
+    end
   end
 
 end

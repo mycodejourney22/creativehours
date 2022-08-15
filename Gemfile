@@ -11,6 +11,9 @@ gem 'stripe'
 
 gem 'stripe_event'
 
+gem 'acts_as_favoritor'
+
+
 gem "dotenv-rails", groups: [:development, :test]
 
 gem "cloudinary"

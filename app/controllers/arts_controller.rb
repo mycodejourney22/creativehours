@@ -36,6 +36,11 @@ class ArtsController < ApplicationController
     redirect_to root_path
   end
 
+  def toggle_favorite
+    @art = Art.find_by(id: params[:id])
+    current_artist.favorited?(@art) ? current_artist.unfavorite(@art) : current_artist.favorite(@art)
+  end
+
   private
 
   def strong_params

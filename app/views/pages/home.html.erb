@@ -25,14 +25,15 @@
   <div class="Style py-20">
     <div class="Style__Row-heading mb-8 flex justify-between">
       <h4 class="font-bold">Explore</h4>
-      <%= link_to arts_path, class: " font-bold underline decoration-2 underline-offset-8 text-black decoration-[#3449B8]/70 text-black  hover:decoration-[#3449B8]" do %>
+      <%= link_to arts_path, class: " font-bold underline decoration underline-offset-8 text-black decoration-[#3449B8] text-black  hover:decoration-2" do %>
         View more designs <i class="fa-solid fa-right-long ml-1"></i>
       <% end %>
     </div>
     <div class="grid Style__grid  grid-cols-1  gap-3 md:grid-cols-3 lg:grid-cols-4 ">
       <% @arts.each do |art| %>
-        <div class= "Style__grid--card">
+        <div class= "Style__grid--card relative">
           <%= render "devise/shared/modal-home", art: art %>
+          <%= render "devise/shared/svg" , art: art %>
           <div class="header-item d-flex align-items-center justify-content-between mt-1">
             <div class= "d-flex" style="gap: 0.8rem">
               <%= cl_image_tag art.artist.photo.key, class: "avatar", alt: "avatar" , style: "height:1.3rem"%>

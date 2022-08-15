@@ -7,11 +7,11 @@
     <div class= "Style Style__cart Style__cart-heading  text-center">
       <%# <h2>My Shopping bag</h2> %>
       <div class="text-start mt-12">
-        <%= link_to  arts_path, class: "font-bold  underline decoration-2 underline-offset-8 text-black decoration-[#3449B8]/70 hover:decoration-[#3449B8]" do %>
+        <%= link_to  arts_path, class: "font-bold  underline decoration underline-offset-8 text-black decoration-[#3449B8] hover:decoration-2" do %>
           <i class="fa-solid fa-arrow-left-long mr-1" ></i>  Continue shopping
         <% end %>
       </div>
-      <% if @arts %>
+      <% if @arts && @arts.count > 0 %>
         <div class= "sm:grid grid-cols-4 gap-2">
           <div class="col-span-3"><hr>
             <% @arts.each do |art| %>
@@ -35,11 +35,11 @@
             <h6 class="font-black text-md">Order Information</h6><hr>
             <div class="flex justify-between">
               <p>Total items:</p>
-              <p>3</p>
+              <p><%= @arts.count %></p>
             </div>
             <div class="flex justify-between">
               <p>Total price:</p>
-              <p>£0.00GBP</p>
+              <p><%= humanized_money_with_symbol @total %></p>
             </div>
             <%= button_to "Continue to checkout",  orders_path,class:"PrimaryButton w-100 py-2.5 rounded-lg inline-flex items-center justify-center w-max", method: :post  %>
             <p class="text-xs pt-3 opacity-80">Price is in British Pounds. Price excludes sales tax.</p>

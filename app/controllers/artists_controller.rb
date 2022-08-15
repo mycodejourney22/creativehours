@@ -8,5 +8,18 @@ class ArtistsController < ApplicationController
   def mycart
     @art = Art.new
     @arts = Art.find(session[:cart]) if session[:cart]
+    @total = total_price
+  end
+
+  private
+
+  def total_price
+    sum = 0
+    if @arts
+      @arts.each do |art|
+        sum += art.price
+      end
+    end
+    return sum
   end
 end

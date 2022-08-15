@@ -1,6 +1,7 @@
 class Art < ApplicationRecord
   belongs_to :artist
   has_many :purchase
+  acts_as_favoritable
   has_many :buyers, through: :purchase
   has_one_attached :photo
   monetize :price_cents

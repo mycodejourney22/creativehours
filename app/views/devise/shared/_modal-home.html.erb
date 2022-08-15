@@ -24,7 +24,13 @@
               <% end %>
               <div>
                 <p><%= art.artist.name %></p>
-                <a href="#" class=" decoration-2 underline-offset-8 text-black decoration-[#3449B8]/70  hover:decoration-[#3449B8]">Available for hire <i class="fa-solid fa-circle-check ml-1"></i></a>
+                <div class= "flex gap-2">
+                  <a href="#" class=" decoration underline-offset-8 text-black decoration-[#3449B8]  hover:decoration-2">Available for hire </a>
+                  <div class="relative">
+                    <i class="fa-solid fa-certificate text-blue-600"></i>
+                    <i class="fa-solid fa-check text-[10px] text-white absolute top-1 left-[0.21rem]"></i>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
