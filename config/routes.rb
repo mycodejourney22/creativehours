@@ -16,6 +16,11 @@ Rails.application.routes.draw do
     member do
       get :mycart
     end
+
+    member do
+      post :follow
+      post :unfollow
+    end
   end
 
   resources :orders, only: ["show", "create"] do

@@ -1,0 +1,7 @@
+
+function renderUser(artistHTML) {
+  const artist = document.querySelector("[data-user='<%= @artist.id %>']");
+  artist.outerHTML = artistHTML;
+}
+
+renderUser('<%= j render follow %>');
