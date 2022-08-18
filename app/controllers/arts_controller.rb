@@ -39,6 +39,10 @@ class ArtsController < ApplicationController
   def toggle_favorite
     @art = Art.find_by(id: params[:id])
     current_artist.favorited?(@art) ? current_artist.unfavorite(@art) : current_artist.favorite(@art)
+    respond_to do |format|
+      format.json
+      format.html
+    end
   end
 
   private
