@@ -1,7 +1,7 @@
-<span data-user=<%= artist.id %> data-controller="follow" data-action="click->follow#changeStatus">
+<div data-user=<%= @artist.followers.count %>  data-action="click->follow#changeStatus">
   <% if current_artist.is_following?(artist.id)%>
-    <%= button_to "Unfollow", unfollow_artist_path(artist.id), method: :post, remote: true %>
+    <%= button_to "Following", unfollow_artist_path(artist.id), class: "bg-gray-300 py-1.5 px-5 font-bold rounded-lg", method: :post, remote: true %>
   <% else %>
-    <%= button_to "Follow", follow_artist_path(artist.id), method: :post, remote: true %>
+    <%= button_to "Follow", follow_artist_path(artist.id), class: "bg-[#3449B8] text-white py-1.5 px-5 font-semibold rounded-lg", method: :post, remote: true %>
   <% end %>
-</span>
+</div>

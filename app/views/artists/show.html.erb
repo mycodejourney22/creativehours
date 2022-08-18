@@ -6,16 +6,16 @@
     <% else %>
       <%= image_tag "https://kitt.lewagon.com/placeholder/users/arthur-littm", class: "avatar-large", alt: "avatar-large" %>
     <% end %>
-    <div>
+    <div data-controller="follow">
       <h6><%= @artist.name %></h6>
       <a href="#">Available for hire <i class="fa-solid fa-circle-check"></i></a>
       <p><%= @artist.bio %></p>
       <p><i class="fa-solid fa-location-dot" style="color:#6c757d"></i> <%= @artist.location.capitalize %></p>
-      <p><span style="font-weight:bold">160</span> Followers</p>
-      <div class="d-flex artist-show-header" style= "gap:6px">
-        <p>Follow</p>
-        <p>Message</p>
-        <%= render "follow", artist: @artist %>
+      <div data-controller="follow">
+          <%= render "followercount", artist: @artist %>
+          <div class="d-flex artist-show-header" style= "gap:6px">
+          </div>
+          <%= render "follow", artist: @artist %>
       </div>
     </div>
   </div><hr>
