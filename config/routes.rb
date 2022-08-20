@@ -21,6 +21,8 @@ Rails.application.routes.draw do
       post :follow
       post :unfollow
     end
+
+    resources :chatrooms, only: [:create]
   end
 
   resources :orders, only: ["show", "create"] do

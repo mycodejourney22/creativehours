@@ -17,7 +17,7 @@ class ArtsController < ApplicationController
   end
 
   def create
-    @artist = Artist.find(current_artist.id)
+    @artist = current_artist
     @art = Art.new(strong_params)
     @art.artist = @artist
     if @art.save
