@@ -18,7 +18,7 @@
           <div class=" flex justify-between items-center">
             <div class="modal-title d-flex" id="staticBackdropLabel">
               <% if art.artist.photo.attached? %>
-                <%= cl_image_tag art.artist.photo.key, class: "avatar", alt: "avatar" , style: "height:3rem"%>
+                <%= cl_image_tag art.artist.photo.key, class: "rounded-full h-[3rem] w-[3rem] object-cover", alt: "avatar" %>
               <% else %>
                 <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
               <% end %>

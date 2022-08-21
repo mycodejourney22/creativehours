@@ -3,6 +3,7 @@ class ArtistsController < ApplicationController
   before_action :set_artist, only: [:follow, :unfollow, :show]
 
   def show
+    @art = Art.new
     @art4 = Art.all.sample(4)
   end
 
