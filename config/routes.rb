@@ -12,7 +12,7 @@ Rails.application.routes.draw do
   # root "articles#index"
 
   resources :artists, only: ["show"] do
-    resources :arts, only: ["new", "create"]
+    resources :arts, only: ["new", "create", "edit"]
     member do
       get :mycart
     end
@@ -41,5 +41,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+
+  resources :arts, only: [:update, :destroy]
 
 end

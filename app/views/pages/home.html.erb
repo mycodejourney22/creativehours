@@ -31,7 +31,7 @@
     </div>
     <div class="grid Style__grid  grid-cols-1  gap-3 md:grid-cols-3 lg:grid-cols-4 ">
       <% @arts.each do |art| %>
-        <div class= "Style__grid--card relative">
+        <div class= "Style__grid--card relative ">
           <%= render "devise/shared/modal-home", art: art %>
           <%= render "devise/shared/svg" , art: art %>
           <div class="header-item d-flex align-items-center justify-content-between mt-1">

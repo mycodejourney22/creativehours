@@ -29,6 +29,23 @@ class ArtsController < ApplicationController
     end
   end
 
+  def edit
+   @art = Art.find(params[:id])
+  end
+
+  def update
+    @art = Art.find(params[:id])
+    @art.artist = current_artist
+    @art.update(strong_params)
+    redirect_to artist_path(current_artist)
+  end
+
+  def destroy
+    @art = Art.find(params[:id])
+    @art.destroy
+    redirect_to artist_path(current_artist)
+  end
+
   def cart
     id = params[:id].to_i
     session[:cart] ||= []
