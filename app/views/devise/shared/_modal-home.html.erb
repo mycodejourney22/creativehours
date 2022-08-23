@@ -55,8 +55,8 @@
             <% if current_artist %>
               <% if current_artist.art.include?(art) %>
                   <div class="flex justify-between">
-                    <%= link_to "Edit", edit_artist_art_path(current_artist, art), class: "no-underline font-semibold" %>
-                    <%= link_to "Delete", art_path(art), class: "no-underline font-semibold", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
+                    <%= link_to "Edit", edit_artist_art_path(current_artist, art), class: "decoration underline-offset-8 text-black decoration-[#3449B8]  hover:decoration-2" %>
+                    <%= link_to "Delete", art_path(art), class: "decoration underline-offset-8 text-black decoration-[#3449B8]  hover:decoration-2", data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} %>
                   </div>
                 <% else %>
                   <%= button_to "ADD TO BASKET", cart_art_path(art), class: " PrimaryButton w-100 py-2.5 rounded-lg inline-flex items-center justify-center w-max ",  method: :post %>
