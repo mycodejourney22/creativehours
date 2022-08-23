@@ -73,14 +73,13 @@
         <div class="container grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4 mt-4">
           <% @art4.each do |art| %>
             <div>
-              <div class="header-item d-flex align-items-center justify-content-between">
+              <div class="header-item d-flex align-items-center justify-content-between mt-1">
                 <div class= "d-flex" style="gap: 0.8rem">
                   <%= cl_image_tag art.artist.photo.key, class: "avatar", alt: "avatar" , style: "height:1.3rem"%>
                   <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
                 </div>
                 <div class= "header-icon d-flex" style="gap: 0.8rem">
-                  <div><i class="fa-solid fa-heart"></i> 0</div>
-                  <div><i class="fa-solid fa-square-plus"></i></div>
+                  <div><p class="text-[#3449B8] font-bold">£<%= art.price  %></p></div>
                 </div>
               </div>
               <% if art.photo.attached? %>

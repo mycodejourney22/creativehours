@@ -31,14 +31,6 @@
       <div>
         <%= render "devise/shared/modal-home", art: art %>
         <div class="header-item d-flex align-items-center justify-content-between mt-1">
-          <div class= "d-flex" style="gap: 0.8rem">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/cveneziani", class: "avatar", alt: "avatar" %>
-            <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
-          </div>
-          <div class= "header-icon d-flex" style="gap: 0.8rem">
-            <div><i class="fa-solid fa-heart"></i> 0</div>
-            <div><i class="fa-solid fa-square-plus"></i></div>
-          </div>
         </div>
       </div>
     <% end %>
