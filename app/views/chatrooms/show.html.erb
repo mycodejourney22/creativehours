@@ -1,23 +1,44 @@
+<%= render "devise/shared/navbar", artist: current_artist %>
 <div class="container chatroom"
     data-controller="chatroom-subscription"
     data-chatroom-subscription-chatroom-id-value="<%= @chatroom.id %>"
+    data-chatroom-subscription-current-artist-id-value="<%= current_artist.id %>"
 >
-  <h1>#<%= @chatroom.name %></h1>
+  <div class="flex gap-4 mb-2 items-center">
+   <%= link_to  artist_path(@second_chat_user), class: "font-bold  underline decoration underline-offset-8 text-black decoration-[#3449B8] hover:decoration-2" do %>
+      <i class="fa-solid fa-arrow-left-long mr-1" ></i>  Back
+    <% end %>
+    <%= cl_image_tag @second_chat_user.photo.key, class: "h-[4rem] w-[4rem] rounded-full object-cover", alt: "avatar"%>
+    <div>
+      <h6 class="font-semibold"><%= @second_chat_user.name %></h6>
+      <p class="opacity-60 mb-0"><%= @second_chat_user.location.capitalize %></p>
+    </div>
+  </div>
 
   <div class="messages" data-chatroom-subscription-target="messages">
     <% @chatroom.messages.each do |message| %>
+      <div class="message-row flex <%= message.sender?(current_artist) ? 'justify-end' : 'justify-start' %>">
+        <div class="<%= message.sender?(current_artist) ? 'sender-style' : 'receiver-style' %>">
           <%= render "messages/message", message: message %>
+        </div>
+      </div>
     <% end %>
   </div>
+
 
   <%= simple_form_for [@chatroom, @message],
   html: { data: { action: "turbo:submit-end->chatroom-subscription#resetForm" }, class: "d-flex" } do |f|
 %>
   <%= f.input :content,
     label: false,
+    input_html: {class: "form-control form-control-half-full form-control-style"},
     placeholder: "Message ##{@chatroom.name}",
     wrapper_html: {class: "flex-grow-1"}
   %>
-  <%= f.submit "Send", class: "btn btn-primary mb-3" %>
+  <%= button_tag :submit, class: "Banner-heading-button top-[-8px]"  do %>
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-send-fill" viewBox="0 0 16 16">
+      <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083l6-15Zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471-.47 1.178Z" style="fill: #3449B8"/>
+    </svg>
+  <% end %>
 <% end %>
 </div>

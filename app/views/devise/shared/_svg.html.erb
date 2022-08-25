@@ -1,6 +1,6 @@
 
 <% if current_artist %>
-  <%= button_to toggle_favorite_art_path(art), method: :post,:remote=> true, :"data-controller" =>"favorites" ,
+  <%= button_to toggle_favorite_art_path(art),  method: :post,:remote=> true, :"data-controller" =>"favorites" ,
                                                                             :"data-action" =>"click->favorites#changecolor" do  %>
     <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
       viewBox="0 0 51.997 51.997" style="enable-background:new 0 0 51.997 51.997;" xml:space="preserve" class="h-[20px] absolute top-[12px] right-[18px] stroke-[4px] opacity-50  stroke-white cursor-pointer
