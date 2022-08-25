@@ -23,10 +23,10 @@
 
   <div class="container  mt-5 grid grid-cols-1 sm:grid-cols-2 gap-3 md:grid-cols-3 lg:grid-cols-4">
     <% @arts.each do |art| %>
-      <div class= "Style__grid--card relative ">
+      <div class= "Style__grid Style__grid--card relative ">
         <%= render "devise/shared/modal-home", art: art %>
         <%= render "devise/shared/svg" , art: art %>
-        <div class="header-item d-flex align-items-center justify-content-between mt-1 relative top-[-20px]">
+        <div class="header-item d-flex align-items-center justify-content-between mt-1 <%= 'relative top-[-20px]' if current_artist %>">
           <div class= "d-flex" style="gap: 0.8rem">
             <%= cl_image_tag art.artist.photo.key, class: "avatar", alt: "avatar" , style: "height:1.3rem"%>
             <div><p><%= link_to art.artist.name, artist_path(art.artist) %></p></div>
