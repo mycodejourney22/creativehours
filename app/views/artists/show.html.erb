@@ -1,20 +1,25 @@
 <%= render "devise/shared/navbar", artist: current_artist %>
-<div class=" container container-height mt-[6rem]">
+<div class=" container container-height mt-[4.3rem]">
   <div class="head-content mx-auto sm:w-[42rem]">
-    <div class="Navigation__inner Navigation__inner-avatar p-0.5 rounded-full w-max h-min">
-      <a class="block bg-white p-0.5 rounded-full w-max" href="#">
-        <% if @artist.photo.attached? %>
-          <%= cl_image_tag @artist.photo.key, class: "h-[7rem] w-[7rem] rounded-full object-cover", alt: "avatar"%>
-        <% else %>
-          <img class="h-8 w-8 rounded-full" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="avatar">
-        <% end %>
-      </a>
+    <div class="flex items-end justify-between">
+      <div class="Navigation__inner Navigation__inner-avatar p-0.5 rounded-full w-max h-min">
+        <a class="block bg-white p-0.5 rounded-full w-max" href="#">
+          <% if @artist.photo.attached? %>
+            <%= cl_image_tag @artist.photo.key, class: "h-[7rem] w-[7rem] rounded-full object-cover", alt: "avatar"%>
+          <% else %>
+            <img class="h-8 w-8 rounded-full" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="avatar">
+          <% end %>
+        </a>
+      </div>
+      <%= link_to  "#" do %>
+        <span class="text-xl"><i class="fa-solid fa-pen"></i></span>
+      <% end %>
     </div>
     <div data-controller="follow">
-      <h6><%= @artist.name %></h6>
+      <h6 class="pt-3"><%= @artist.name %></h6>
       <a href="#">Available for hire <i class="fa-solid fa-circle-check"></i></a>
-      <p><%= @artist.bio %></p>
-      <p><i class="fa-solid fa-location-dot" style="color:#6c757d"></i> <%= @artist.location.capitalize %></p>
+      <p class="text-sm"><%= @artist.bio %></p>
+      <p class="text-sm font-semibold	"><i class="fa-solid fa-location-dot" style="color:#6c757d"></i> <%= @artist.location.capitalize %></p>
       <div data-controller="follow">
         <%= render "followercount", artist: @artist %>
         <div class="d-flex artist-show-header" style= "gap:6px">
