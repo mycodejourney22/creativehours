@@ -13,17 +13,17 @@
             <a class="no-underline text-black font-semibold Navigation__inner-link" href="#">Hire a Creative</a>
           </li>
           <% if !current_artist %>
-            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2  sm:py-0 sm:inline-block sm:ml-5">
+            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 hidden sm:py-0 sm:inline-block sm:ml-5">
               <%= link_to "Submit your work", new_artist_session_path, class: "no-underline text-black font-semibold Navigation__inner-link" %>
             </li>
           <% end %>
           <% if !current_artist %>
-            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
+            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 hidden sm:py-0 sm:inline-block sm:ml-5">
               <%= link_to "Login", new_artist_session_path, class: "no-underline text-black font-semibold Navigation__inner-link" %>
           </li>
           <% end %>
           <% if !current_artist %>
-            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5 no-underline">
+            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list hidden py-2 sm:py-0 sm:inline-block sm:ml-5 no-underline">
               <%= link_to "SignUp", new_artist_session_path, class: "no-underline text-black font-semibold Navigation__inner-link" %>
             </li>
           <% end %>
@@ -67,16 +67,20 @@
           <div class="sm:hidden h-screen pt-14">
             <ul class="pl-0">
               <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list   sm:hidden ">
-                <%= link_to "Hire a creative", "#", class: "text-5xl no-underline text-black font-semibold Navigation__inner-link"  %>
-              </li><hr>
-              <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10  sm:hidden ">
-                <%= link_to "Submit your work", "#", class: "text-5xl no-underline text-black font-semibold Navigation__inner-link"  %>
-              </li><hr>
-              <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10  sm:hidden ">
-                <%= link_to "My Basket", mycart_artist_path(current_artist), class: "text-5xl no-underline text-black font-semibold Navigation__inner-link"  %>
+                <%= link_to "Hire a creative", "#", class: "text-3xl no-underline text-black font-semibold Navigation__inner-link"  %>
               </li><hr>
               <% if current_artist %>
-                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10  sm:hidden sm:ml-5 no-underline relative sm:top-[1.2rem]">
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10   sm:hidden ">
+                  <%= link_to "Submit your work", "#", class: "text-3xl no-underline text-black font-semibold Navigation__inner-link"  %>
+                </li><hr>
+              <% end %>
+              <% if current_artist %>
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10   sm:hidden ">
+                  <%= link_to "My Basket", mycart_artist_path(current_artist), class: "text-3xl no-underline text-black font-semibold Navigation__inner-link"  %>
+                </li><hr>
+              <% end %>
+              <% if current_artist %>
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10   sm:hidden sm:ml-5 no-underline relative sm:top-[1.2rem]">
                   <div class="Navigation__inner Navigation__inner-avatar p-0.5 rounded-full w-max">
                     <a class="block bg-white p-0.5 rounded-full w-max" href="#">
                       <% if current_artist.photo.attached? %>
@@ -89,9 +93,24 @@
                 </li><hr>
               <% end %>
               <% if current_artist %>
-                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10   sm:hidden sm:ml-5 no-underline">
-                  <%= link_to "Signout", destroy_artist_session_path, class: "no-underline text-5xl text-black font-semibold opacity-40", data: {turbo_method: :delete} %>
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10  sm:hidden sm:ml-5 no-underline">
+                  <%= link_to "Signout", destroy_artist_session_path, class: "no-underline text-3xl text-black font-semibold opacity-40", data: {turbo_method: :delete} %>
                 </li><hr>
+              <% end %>
+              <% if !current_artist %>
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list sm:hidden  mt-10 ">
+                  <%= link_to "Submit your work", new_artist_session_path, class: "text-3xl no-underline text-black font-semibold Navigation__inner-link"%>
+                </li><hr>
+              <% end %>
+              <% if !current_artist %>
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list sm:hidden mt-10 ">
+                  <%= link_to "Login", new_artist_session_path, class: "text-3xl no-underline text-black font-semibold Navigation__inner-link"%>
+                </li><hr>
+              <% end %>
+              <% if !current_artist %>
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list sm:hidden mt-32 ">
+                  <%= link_to "SignUp", new_artist_registration_path, class: "text-3xl no-underline  PrimaryButton w-100 py-2.5 rounded-lg inline-flex items-center justify-center w-max "%>
+                </li>
               <% end %>
             </ul>
           </div>
