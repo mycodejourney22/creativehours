@@ -9,11 +9,11 @@
       </div>
       <div>
         <ul class="Navigation__inner Navigation__inner-items hidden pl-0  sm:block  mb-0 " data-navbar-target="listItem">
-          <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list  sm:py-0 sm:inline-block ">
+          <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list hidden sm:py-0 sm:inline-block ">
             <a class="no-underline text-black font-semibold Navigation__inner-link" href="#">Hire a Creative</a>
           </li>
           <% if !current_artist %>
-            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2 sm:py-0 sm:inline-block sm:ml-5">
+            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list py-2  sm:py-0 sm:inline-block sm:ml-5">
               <%= link_to "Submit your work", new_artist_session_path, class: "no-underline text-black font-semibold Navigation__inner-link" %>
             </li>
           <% end %>
@@ -28,7 +28,12 @@
             </li>
           <% end %>
           <% if current_artist %>
-            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list sm:inline-block sm:ml-5 no-underline">
+            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list sm:inline-block hidden sm:ml-5 no-underline">
+              <%= render "devise/shared/modal" %>
+            </li>
+          <% end %>
+          <% if current_artist %>
+            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list hidden sm:inline-block sm:ml-5 no-underline">
               <%= link_to mycart_artist_path(current_artist), class: "no-underline text-inherit" do %>
                 <div class="d-flex">
                   <p class="border rounded-lg py-2.5 px-3 mb-0"><i class="fa-solid fa-basket-shopping"></i></p>
@@ -42,12 +47,7 @@
             </li>
           <% end %>
           <% if current_artist %>
-            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list sm:inline-block sm:ml-5 no-underline">
-              <%= render "devise/shared/modal" %>
-            </li>
-          <% end %>
-          <% if current_artist %>
-            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list  sm:inline-block sm:ml-5 no-underline relative sm:top-[1.2rem]">
+            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list hidden sm:inline-block sm:ml-5 no-underline relative sm:top-[1.2rem]">
               <div class="Navigation__inner Navigation__inner-avatar p-0.5 rounded-full w-max">
                 <a class="block bg-white p-0.5 rounded-full w-max" href="#">
                   <% if current_artist.photo.attached? %>
@@ -60,10 +60,41 @@
             </li>
           <% end %>
           <% if current_artist %>
-            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list  sm:inline-block sm:ml-5 no-underline">
+            <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list hidden  sm:inline-block sm:ml-5 no-underline">
               <%= link_to "Signout", destroy_artist_session_path, class: "no-underline text-black font-semibold opacity-40", data: {turbo_method: :delete} %>
             </li>
           <% end %>
+          <div class="sm:hidden h-screen pt-14">
+            <ul class="pl-0">
+              <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list   sm:hidden ">
+                <%= link_to "Hire a creative", "#", class: "text-5xl no-underline text-black font-semibold Navigation__inner-link"  %>
+              </li><hr>
+              <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10  sm:hidden ">
+                <%= link_to "Submit your work", "#", class: "text-5xl no-underline text-black font-semibold Navigation__inner-link"  %>
+              </li><hr>
+              <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10  sm:hidden ">
+                <%= link_to "My Basket", mycart_artist_path(current_artist), class: "text-5xl no-underline text-black font-semibold Navigation__inner-link"  %>
+              </li><hr>
+              <% if current_artist %>
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10  sm:hidden sm:ml-5 no-underline relative sm:top-[1.2rem]">
+                  <div class="Navigation__inner Navigation__inner-avatar p-0.5 rounded-full w-max">
+                    <a class="block bg-white p-0.5 rounded-full w-max" href="#">
+                      <% if current_artist.photo.attached? %>
+                        <%= cl_image_tag current_artist.photo.key, class: "h-20 w-20 rounded-full object-cover", alt: "avatar"%>
+                      <% else %>
+                        <img class="h-20 w-20 rounded-full" src="https://kitt.lewagon.com/placeholder/users/cveneziani" alt="avatar">
+                      <% end %>
+                    </a>
+                  </div>
+                </li><hr>
+              <% end %>
+              <% if current_artist %>
+                <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list mt-10   sm:hidden sm:ml-5 no-underline">
+                  <%= link_to "Signout", destroy_artist_session_path, class: "no-underline text-5xl text-black font-semibold opacity-40", data: {turbo_method: :delete} %>
+                </li><hr>
+              <% end %>
+            </ul>
+          </div>
         </ul>
       </div>
     </div>
