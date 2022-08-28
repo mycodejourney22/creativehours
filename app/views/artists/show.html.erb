@@ -11,8 +11,10 @@
           <% end %>
         </a>
       </div>
-      <%= link_to  "#" do %>
-        <span class="text-xl"><i class="fa-solid fa-pen"></i></span>
+      <% if @artist == current_artist %>
+        <%= link_to  "#" do %>
+          <span class="text-xl"><i class="fa-solid fa-pen"></i></span>
+        <% end %>
       <% end %>
     </div>
     <div data-controller="follow">
