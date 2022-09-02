@@ -10,7 +10,6 @@ class Artist < ApplicationRecord
   validates :email, :uniqueness => {:allow_blank => true}
   has_one_attached :photo
   validates :name, presence: true
-  validates :bio, presence: true
   validates :location, presence: true
   has_many :follower_relationships, foreign_key: :following_id, class_name: 'Follow'
   has_many :followers, through: :follower_relationships, source: :follower

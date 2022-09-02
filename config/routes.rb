@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  devise_for :artists
+  devise_for :artists, controllers: { registrations: "registrations" }
   get 'arts/show'
   get 'artists/show'
   root to: "pages#home"
