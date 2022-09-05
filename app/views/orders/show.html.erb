@@ -8,9 +8,9 @@
       <% @arts.each do |art| %>
         <p><%= art.description.capitalize %></p>
         <% if art.photo.attached? %>
-          <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " image-show " %></div>
+          <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, alt: "creative images",  class: " image-show " %></div>
         <% else %>
-          <div class=" text-center"><%= image_tag art.image_url, class: " image-show " %></div>
+          <div class=" text-center"><%= image_tag art.image_url, alt: "creative images",  class: " image-show " %></div>
         <% end %>
         <p><%= art.price %></p>
       <% end %>

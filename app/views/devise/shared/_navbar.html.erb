@@ -24,7 +24,7 @@
           <% end %>
           <% if !current_artist %>
             <li class="Navigation__inner Navigation__inner-items Navigation__inner-items-list hidden py-2 sm:py-0 sm:inline-block sm:ml-5 no-underline">
-              <%= link_to "SignUp", new_artist_session_path, class: "no-underline text-black font-semibold Navigation__inner-link" %>
+              <%= link_to "SignUp", new_artist_registration_path, class: "no-underline text-black font-semibold Navigation__inner-link" %>
             </li>
           <% end %>
           <% if current_artist %>

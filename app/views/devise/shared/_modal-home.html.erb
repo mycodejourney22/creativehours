@@ -1,9 +1,9 @@
 
 <%= link_to "javascript:void(0)" do  %>
   <% if art.photo.attached? %>
-    <div><%= cl_image_tag art.photo.key, class: "homepage-image img-fluid gallery__img", :'data-bs-toggle' => "modal", :'data-bs-target' => "#myModal-#{art.id}" %></div>
+    <div><%= cl_image_tag art.photo.key, alt: "creative images", class: "homepage-image img-fluid gallery__img", :'data-bs-toggle' => "modal", :'data-bs-target' => "#myModal-#{art.id}" %></div>
   <% else %>
-    <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img", :'data-bs-toggle' => "modal", :'data-bs-target' => "#myModal-#{art.id}" %></div>
+    <div><%= image_tag art.image_url, alt: "creative images", class: "homepage-image img-fluid gallery__img", :'data-bs-toggle' => "modal", :'data-bs-target' => "#myModal-#{art.id}" %></div>
   <% end %>
 <% end %>
 
@@ -39,9 +39,9 @@
         <div class="modal-body Style__ShowPage-flex text-center sm:flex justify-around  mb-5">
           <div class="modal-custome-body Style__ShowPage-heading">
             <% if art.photo.attached? %>
-              <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, class: " image-show mb-2 " %></div>
+              <div class=" text-center mx-auto"><%= cl_image_tag art.photo.key, alt: "creative images",  class: " image-show mb-2 " %></div>
             <% else %>
-              <div class=" text-center"><%= image_tag art.image_url, class: " image-show mb-3" %></div>
+              <div class=" text-center"><%= image_tag art.image_url, alt: "creative images",  class: " image-show mb-3" %></div>
             <% end %>
             <p class="text-center"><%= art.description.capitalize %></p>
           </div>
@@ -83,9 +83,9 @@
                 </div>
               </div>
               <% if art.photo.attached? %>
-                <div><%= cl_image_tag art.photo.key, class: "homepage-image img-fluid gallery__img" %></div>
+                <div><%= cl_image_tag art.photo.key, alt: "creative images",  class: "homepage-image img-fluid gallery__img" %></div>
               <% else %>
-                <div><%= image_tag art.image_url, class: "homepage-image img-fluid gallery__img" %></div>
+                <div><%= image_tag art.image_url, alt: "creative images",  class: "homepage-image img-fluid gallery__img" %></div>
               <% end %>
             </div>
           <% end %>
