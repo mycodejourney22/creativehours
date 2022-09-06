@@ -26,9 +26,9 @@
                   placeholder: "Location",
                   label_html:  { :class => ' opacity-0 font-semibold text-sm transition-all'},
                   input_html: { autocomplete: "location" , class: "form-control-half-full form-control-style", :"data-action" => "keyup->signupform#inputCheck"}%>
-      <%= f.input :photo,
-                  input_html: {class: "form-control-half-full form-control-style"},
-                  as: :file %>
+      <%= f.input :photo, as: :file,
+                  input_html: {class: "form-control-half-full form-control-style"}
+                   %>
       <%= f.input :email,
                   required: true,
                   autofocus: true,
